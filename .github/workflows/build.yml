@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Configure
-        run: cmake -B build -G Xcode -DGS_FORMATS="AU;VST3;Standalone"
+        run: cmake -B build -G Xcode -DGS_FORMATS="AU;VST3;Standalone" -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
       - name: Build
         run: cmake --build build --config Release -- -quiet
       - name: Package
